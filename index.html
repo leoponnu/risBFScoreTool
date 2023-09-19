@@ -16,7 +16,7 @@
                         <td><label id="atk_all_result" name="atk_all_result" value="0"></td>   
                     </tr>
                     <tr>
-                        <th><lthabel>ユニット</label></td>
+                        <th><label>ユニット</label></td>
                         <th><label>累計攻撃側損失数</label></td>
                         <th><label>累計攻撃側負傷数</label></td>
                         <th><label>ユニット</label></td>
@@ -689,20 +689,20 @@
         function calcurateData(){
             // スコア定義群
             // 戦闘機など
-            let  scoreunique = 20000;
+            let  defScoreunique = 2000;
             // 一般ユニット
-            let  scoreT12 = 150;
-            let  scoreT11 = 120;
-            let  scoreT10 = 96;
-            let  scoreT09 = 70;
-            let  scoreT08 = 42;
-            let  scoreT07 = 30;
-            let  scoreT06 = 20;
-            let  scoreT05 = 12;
-            let  scoreT04 = 0;
-            let  scoreT03 = 0;
-            let  scoreT02 = 0;
-            let  scoreT01 = 0;
+            let  defScoreT12 = 20;
+            let  defScoreT11 = 16;
+            let  defScoreT10 = 13;
+            let  defScoreT09 = 8;
+            let  defScoreT08 = 5;
+            let  defScoreT07 = 3;
+            let  defScoreT06 = 2;
+            let  defScoreT05 = 1;
+            let  defScoreT04 = 0;
+            let  defScoreT03 = 0;
+            let  defScoreT02 = 0;
+            let  defScoreT01 = 0;
             // 計算結果
             // 守備側
             // ユニット数算出
@@ -815,29 +815,46 @@
 
             // スコア算出
             // ユニークユニット
-            var  defUniqueScore = defUniqueUnit * scoreunique;
+            var  defUniqueScore = defUniqueUnit * defScoreunique;
             // T12ユニット
-            var  defT12Score = defT12Unit * scoreT12;
+            var  defT12Score = defT12Unit * defScoreT12;
             // T11ユニット
-            var  defT11Score = defT11Unit * scoreT11;
+            var  defT11Score = defT11Unit * defScoreT11;
             // T10ユニット
-            var  defT10Score = defT10Unit * scoreT10;
+            var  defT10Score = defT10Unit * defScoreT10;
             // T9ユニット
-            var  defT09Score = defT09Unit * scoreT09;
+            var  defT09Score = defT09Unit * defScoreT09;
             // T8ユニット
-            var  defT08Score = defT08Unit * scoreT08;
+            var  defT08Score = defT08Unit * defScoreT08;
             // T7ユニット
-            var  defT07Score = defT07Unit * scoreT07;
+            var  defT07Score = defT07Unit * defScoreT07;
             // T6ユニット
-            var  defT06Score = defT06Unit * scoreT06;
+            var  defT06Score = defT06Unit * defScoreT06;
             // T5ユニット
-            var  defT05Score = defT05Unit * scoreT05;
+            var  defT05Score = defT05Unit * defScoreT05;
             // 合計値算出
             var  defResultScore = defUniqueScore + defT12Score + defT11Score + defT10Score + defT09Score + defT08Score + defT07Score + defT06Score + defT05Score;
             // 結果欄に出力
             document.getElementById('def_result').textContent = `${defResultScore}`;
 
             // 攻撃側
+            // スコア定義群
+            // 戦闘機など
+            let  atkScoreunique = 2000;
+            // 一般ユニット
+            let  atkScoreT12 = 65;
+            let  atkScoreT11 = 50;
+            let  atkScoreT10 = 39;
+            let  atkScoreT09 = 24;
+            let  atkScoreT08 = 14;
+            let  atkScoreT07 = 7;
+            let  atkScoreT06 = 4;
+            let  atkScoreT05 = 2;
+            let  atkScoreT04 = 0;
+            let  atkScoreT03 = 0;
+            let  atkScoreT02 = 0;
+            let  atkScoreT01 = 0;
+
             // ユニット数算出
             var atkUniqueUnit1 = (Number(document.getElementById('form').def_fighter1.value) + Number(document.getElementById('form').def_titan1.value) + Number(document.getElementById('form').def_jyotei1.value));
             var atkT12Unit1 = (Number(document.getElementById('form').def_t12zombi1.value) + Number(document.getElementById('form').def_t12shredder1.value)
@@ -946,23 +963,23 @@
             var atkT01Unit = atkT01Unit1 + atkT01Unit2;
 
             // ユニークユニット
-            var  atkUniqueScore = atkUniqueUnit * scoreunique;
+            var  atkUniqueScore = atkUniqueUnit * atkScoreunique;
             // T12ユニット
-            var  atkT12Score = atkT12Unit * scoreT12;
+            var  atkT12Score = atkT12Unit * atkScoreT12;
             // T11ユニット
-            var  atkT11Score = atkT11Unit * scoreT11;
+            var  atkT11Score = atkT11Unit * atkScoreT11;
             // T10ユニット
-            var  atkT10Score = atkT10Unit * scoreT10;
+            var  atkT10Score = atkT10Unit * atkScoreT10;
             // T9ユニット
-            var  atkT09Score = atkT09Unit * scoreT09;
+            var  atkT09Score = atkT09Unit * atkScoreT09;
             // T8ユニット
-            var  atkT08Score = atkT08Unit * scoreT08;
+            var  atkT08Score = atkT08Unit * atkScoreT08;
             // T7ユニット
-            var  atkT07Score = atkT07Unit * scoreT07;
+            var  atkT07Score = atkT07Unit * atkScoreT07;
             // T6ユニット
-            var  atkT06Score = atkT06Unit * scoreT06;
+            var  atkT06Score = atkT06Unit * atkScoreT06;
             // T5ユニット
-            var  atkT05Score = atkT05Unit * scoreT05;
+            var  atkT05Score = atkT05Unit * atkScoreT05;
             // 合計値算出
             var  atkResultScore = atkUniqueScore + atkT12Score + atkT11Score + atkT10Score + atkT09Score + atkT08Score + atkT07Score + atkT06Score + atkT05Score;
             // 結果欄に出力
